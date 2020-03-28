@@ -1,4 +1,4 @@
-package it.krkn.services.organization.model;
+package it.krkn.services.organization.model.dto;
 
 public class Employee {
 
@@ -51,7 +51,11 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", position=" + position + "]";
+		return "Employee{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", age=" + age +
+				", position='" + position + '\'' +
+				'}';
 	}
-
 }

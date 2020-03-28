@@ -1,5 +1,5 @@
-FROM openjdk:11-jre-alpine
-ENV APP_FILE department-service-0.0.1-SNAPSHOT.jar
+FROM openjdk:11-jre
+ENV APP_FILE employee-service-1.0-SNAPSHOT.jar
 ENV APP_HOME /usr/apps
 EXPOSE 8080
 COPY target/$APP_FILE $APP_HOME/

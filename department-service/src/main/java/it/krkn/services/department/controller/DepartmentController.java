@@ -6,7 +6,6 @@ import it.krkn.services.department.model.entity.Department;
 import it.krkn.services.department.repository.DepartmentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,12 +14,16 @@ import java.util.List;
 public class DepartmentController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
-	
-	@Autowired
-	DepartmentRepository repository;
-	@Autowired
-	EmployeeClient employeeClient;
-	
+
+	private DepartmentRepository repository;
+	private EmployeeClient employeeClient;
+
+	public DepartmentController(DepartmentRepository repository, EmployeeClient employeeClient) {
+		this.repository = repository;
+		this.employeeClient = employeeClient;
+	}
+
+
 	@GetMapping("/feign")
 	public List<Employee> listRest() {
 		return employeeClient.findByDepartment(1L);

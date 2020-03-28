@@ -1,17 +1,29 @@
 package it.krkn.services.employee.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.*;
 
-@Document(collection = "employee")
-public class Employee {
+@Entity
+@Table(name = "EMPLOYEE_INFO")
+public class Employee extends BaseEntity<Long> {
 
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
+	private Long id;
+
+	@Column(name = "ORGANIZATION_ID")
 	private Long organizationId;
+
+	@Column(name = "DEPARTMENT_ID")
 	private Long departmentId;
+
+	@Column(name = "NAME")
 	private String name;
+
+	@Column(name = "AGE")
 	private int age;
+
+	@Column(name = "POSITION")
 	private String position;
 
 	public Employee() {
@@ -26,11 +38,12 @@ public class Employee {
 		this.position = position;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	@Override
+	public void setId(Long aLong) {
 		this.id = id;
 	}
 
@@ -76,8 +89,13 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", organizationId=" + organizationId + ", departmentId=" + departmentId
-				+ ", name=" + name + ", position=" + position + "]";
+		return "Employee{" +
+				"id=" + id +
+				", organizationId=" + organizationId +
+				", departmentId=" + departmentId +
+				", name='" + name + '\'' +
+				", age=" + age +
+				", position='" + position + '\'' +
+				'}';
 	}
-
 }
