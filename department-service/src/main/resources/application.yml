@@ -4,9 +4,9 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.99.105:3308/department?serverTimezone=UTC
-    username: root
-    password: krkn123
+    url: jdbc:mysql://${MYSQL_HOST}:3306/${DATABASE-NAME}?autoReconnect=true&failOverReadOnly=false&maxReconnects=10&useSSL=false
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_MYSQL_PASSWORD}
 
   jpa:
     generate-ddl: true
@@ -30,5 +30,3 @@ logging:
     type: TRACE
     type.descriptor.sql.BasicBinder: TRACE
   level: INFO
-server:
-  port: 8084
