@@ -18,7 +18,7 @@ spec:
       - name: employee
         image: krkn/employee:1.0
           ports:
-              - containerPort: 8080
+          - containerPort: 8080
           env:
             - name: MYSQL_HOST
               valueFrom:
