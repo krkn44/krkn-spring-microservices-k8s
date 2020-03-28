@@ -24,7 +24,7 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/{id}")
-	public Employee findById(@PathVariable("id") String id) {
+	public Employee findById(@PathVariable("id") Long id) {
 		LOGGER.info("Employee find: id={}", id);
 		return repository.findById(id).get();
 	}

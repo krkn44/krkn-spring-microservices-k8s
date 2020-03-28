@@ -1,10 +1,34 @@
 spring:
   application:
     name: employee
-  data:
-    mongodb:
-      uri: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongodb/${MONGO_DATABASE}
-      
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.99.105:3308/employee?serverTimezone=UTC
+    username: root
+    password: krkn123
+
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        ddl-auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        type: trace
+        show_sql: true
+        format_sql: true
+        use_sql_comments: false
+
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
 logging:
-  pattern: 
+  pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+  level.org.hibernate:
+    SQL: DEBUG
+    type: TRACE
+    type.descriptor.sql.BasicBinder: TRACE
+  level: INFO
+server:
+  port: 8081

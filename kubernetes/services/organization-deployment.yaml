@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: employee
+  name: organization
   labels:
-    app: employee
+    app: organization
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: employee
+      app: organization
   template:
     metadata:
       labels:
-        app: employee
+        app: organization
     spec:
       containers:
-      - name: employee
-        image: matteo44/employee:1.0
+      - name: organization
+        image: krkn/organization:1.0
           ports:
               - containerPort: 8080
           env:
@@ -39,12 +39,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: employee
+  name: organization
   labels:
-    app: employee
+    app: organization
 spec:
   ports:
   - port: 8080
     protocol: TCP
   selector:
-    app: employee
+    app: organization
