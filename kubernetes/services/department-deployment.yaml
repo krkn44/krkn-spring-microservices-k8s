@@ -30,16 +30,16 @@ spec:
             secretKeyRef:
               name: mysql
               key: root
-        - name: MYSQL_DB_NAME
-            valueFrom:
-              configMapKeyRef:
-                name: mysql
-                key: department-database-name
+        - name: DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: mysql
+              key: department-database-name
         - name: MYSQL_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: mysql
-                key: rootpass
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: rootpass
 ---
 apiVersion: v1
 kind: Service
