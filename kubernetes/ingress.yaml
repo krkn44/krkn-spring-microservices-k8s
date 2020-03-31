@@ -9,7 +9,7 @@ spec:
     serviceName: default-http-backend
     servicePort: 80
   rules:
-  - host: microservices.info
+  - host: krkn.microservices
     http:
       paths:
       - path: /employee

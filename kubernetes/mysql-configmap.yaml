@@ -3,7 +3,9 @@ kind: ConfigMap
 metadata:
   name: mysql
 data:
-  mysql_host: 192.168.99.105
+  #mysql_host: 192.168.99.105
+  #using the host name defined in the name of the sql service
+  mysql_host: mysql
   department-database-name: department
   employee-database-name: employee
   organization-database-name: organization

@@ -14,11 +14,18 @@ spec:
       labels:
         app: department
     spec:
+      volumes:
+        - name: mysql-pv-volume
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim
       containers:
       - name: department
         image: krkn/department:1.0
         ports:
         - containerPort: 8080
+        volumeMounts:
+          - name: mysql-pv-volume
+            mountPath: /var/forever
         env:
         - name: MYSQL_HOST
           valueFrom:
